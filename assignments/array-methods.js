@@ -89,7 +89,74 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+//Create an array which contains a list of objects the contain the companies names and the size of their donations in numeric order 
+let donationOrder = [];
+
+
+donationOrder = runners.map((donationCompany, index, runners) => {
+  return {'company': donationCompany.company_name, 'donation': donationCompany.donation};
+});
+
+
+
+donationOrder.sort((a,b) => a.donation - b.donation);
+
+console.log(donationOrder);
+
+
+
 
 // Problem 2
+//log a list of the companies and their email contact information
+
+let companyLog = [];
+
+companyLog = runners.map((contactCompany, index, runners) => {
+  return {'company': contactCompany.company_name, 'email': contactCompany.email};
+});
+
+console.log(companyLog);
 
 // Problem 3
+//count the amount of each shirt the will be needed 
+let shirtSize = [];
+
+runners.forEach(function (element){
+ shirtSize.push(element.shirt_size);
+})
+
+console.log(shirtSize)
+
+//2XL S XL L 3XL M XS
+
+let XS = S = M = L = XL = twoXL = threeXL = 0;
+
+
+shirtSize.forEach(function (element){
+  
+  if (element === "XS")
+    XS++;
+  else if (element === "S")
+    S++;
+  else if (element === "M")
+    M++;
+  else if (element === "L")
+    L++;
+  else if (element === "XL")
+    XL++;
+  else if (element === "2XL")
+    twoXL++;
+  else (element === "3XL")
+  
+ })
+
+ let shirtAmount = new Object();
+ shirtAmount.xS = XS;
+ shirtAmount.s = S;
+ shirtAmount.m = M;
+ shirtAmount.l = L;
+ shirtAmount.xL = L;
+ shirtAmount.twoXL = twoXL;
+ shirtAmount.threeXL = threeXL;
+
+ console.log(Object.entries(shirtAmount));
